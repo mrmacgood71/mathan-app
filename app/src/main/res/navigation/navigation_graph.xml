@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:andriod="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@+id/navigation_guidebook">
+
+    <fragment
+        android:id="@+id/navigation_guidebook"
+        android:name="it.macgood.mathanapp.ui.guidebook.GuidebookFragment"
+        android:label="fragment_guidebook"
+        tools:layout="@layout/fragment_guidebook" >
+        <action
+            android:id="@+id/get_tasks"
+            app:destination="@id/tasksFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/navigation_guidebook" />
+        <action
+            android:id="@+id/get_encyclopedia"
+            app:destination="@id/encyclopediaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_guidebook_to_desmosFragment"
+            app:destination="@id/desmosFragment" />
+        <action
+            android:id="@+id/get_desmos_from_guidebook"
+            app:destination="@id/desmosFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_tests_from_guidebook"
+            app:destination="@id/testsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_supportingMaterials_from_guidebook"
+            app:destination="@id/supportingMaterialsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_converter_from_guidebook"
+            app:destination="@id/converterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_remark_from_guidebook"
+            app:destination="@id/remarkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_handbook"
+        android:name="it.macgood.mathanapp.ui.handbook.HandbookFragment"
+        android:label="fragment_handbook"
+        tools:layout="@layout/fragment_handbook" >
+        <action
+            android:id="@+id/get_demidovich_chapters"
+            app:destination="@id/chaptersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/encyclopediaFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.encyclopedia.EncyclopediaFragment"
+        android:label="fragment_encyclopedia"
+        andriod:layout="@layout/fragment_encyclopedia" >
+        <action
+            android:id="@+id/get_guides_from_encyclopedia"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.tasks.TasksFragment"
+        android:label="fragment_tasks"
+        andriod:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/get_guides_from_tasks"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/chaptersFragment"
+        android:name="it.macgood.mathanapp.ui.handbook.demidovich.ChaptersFragment"
+        android:label="fragment_chapters"
+        andriod:layout="@layout/fragment_chapters" >
+        <action
+            android:id="@+id/get_handbooks_from_demidovich_chapters"
+            app:destination="@id/navigation_handbook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_exercises_from_chapters_fragment"
+            app:destination="@id/exercisesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/get_exercise_from_search"
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="it.macgood.mathanapp.ui.handbook.demidovich.exercises.ExercisesFragment"
+        android:label="fragment_exercises"
+        andriod:layout="@layout/fragment_exercises" >
+        <argument
+            android:name="range"
+            app:argType="string" />
+        <action
+            android:id="@+id/get_chapters_from_exercises_fragment"
+            app:destination="@id/chaptersFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_exercise_from_exerciseFragment"
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="it.macgood.mathanapp.ui.handbook.demidovich.exercises.exercise.ExerciseFragment"
+        android:label="fragment_exercise"
+        andriod:layout="@layout/fragment_exercise" >
+        <action
+            android:id="@+id/get_exercisesFragment_from_exerciseFragment"
+            app:destination="@id/exercisesFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/desmosFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.desmos.DesmosFragment"
+        android:label="fragment_desmos"
+        andriod:layout="@layout/fragment_desmos" >
+        <action
+            android:id="@+id/get_guidebook_from_desmosFragment"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/testsFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.tests.TestsFragment"
+        android:label="fragment_tests"
+        andriod:layout="@layout/fragment_tests" >
+        <action
+            android:id="@+id/get_guidebook_from_tests"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/navigation_guidebook"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportingMaterialsFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.supportingmaterials.SupportingMaterialsFragment"
+        android:label="fragment_supporting_materials"
+        andriod:layout="@layout/fragment_supporting_materials" >
+        <action
+            android:id="@+id/action_supportingMaterialsFragment_to_navigation_guidebook"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/get_download_from_supports"
+            app:destination="@id/downloadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/converterFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.converter.ConverterFragment"
+        android:label="fragment_converter"
+        andriod:layout="@layout/fragment_converter" >
+        <action
+            android:id="@+id/get_guidebook_from_converter"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/remarkFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.remark.RemarkFragment"
+        android:label="fragment_remark"
+        andriod:layout="@layout/fragment_remark" >
+        <action
+            android:id="@+id/get_guidebook_from_remark"
+            app:destination="@id/navigation_guidebook"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="it.macgood.mathanapp.ui.guidebook.download.DownloadFragment"
+        android:label="fragment_download"
+        andriod:layout="@layout/fragment_download" >
+        <action
+            android:id="@+id/get_guidebook_from_download"
+            app:destination="@id/supportingMaterialsFragment" />
+    </fragment>
+
+</navigation>
