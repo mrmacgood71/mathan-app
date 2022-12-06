@@ -51,8 +51,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment:2.5.3'
-    implementation 'androidx.navigation:navigation-ui:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -96,8 +96,9 @@ dependencies {
     implementation 'ru.noties:jlatexmath-android:0.2.0'
     implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation 'in.hourglass.mathrender:katexmathview:1.0.3'
-//    implementation 'io.github.kexanie.library:MathView:0.0.6'
-//    implementation 'com.github.Nishant-Pathak:mathview:v1.2'
+    implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1'
+    implementation 'in.hourglass.mathrender:katexmathview:1.0.3'
+    implementation 'io.github.kexanie.library:MathView:0.0.6'
+    implementation 'com.github.Nishant-Pathak:mathview:v1.2'
 
 }

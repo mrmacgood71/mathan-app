@@ -96,11 +96,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text" />
 
-        <ImageView
+        <com.ortiz.touchview.TouchImageView
             android:id="@+id/formula"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="400dp"
             android:src="@drawable/download_48px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

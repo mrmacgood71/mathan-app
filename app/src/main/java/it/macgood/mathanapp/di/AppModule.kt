@@ -56,8 +56,6 @@ object AppModule {
         return TaskRepositoryImpl(database.taskDao)
     }
 
-
-
     @Provides
     @Singleton
     fun providesUseCases(repository: TaskRepository): TasksUseCases {

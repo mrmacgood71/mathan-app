@@ -3,6 +3,7 @@ buildscript {
         compose_version = '1.0.2'
     }
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
@@ -23,7 +24,17 @@ buildscript {
 //    id 'com.android.application' version '7.2.2' apply false
 //    id 'com.android.library' version '7.2.2' apply false
 //}
+allprojects {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()// Warning: this repository is going to shut down soon
 
+        // e.g this is how you would add jitpack
+        maven { url "https://jitpack.io" }
+        // Add any repositories you would be adding to all projects here
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

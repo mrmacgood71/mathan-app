@@ -1,6 +1,7 @@
 package it.macgood.mathanapp.ui.handbook.demidovich.exercises.exercise
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,16 @@ class ExerciseFragment : Fragment() {
             GetImage().invoke(id, binding.formula, binding.loading)
         } else {
             GetImage().invoke(param1 ?: "0", binding.formula, binding.loading)
+        }
+
+
+        binding.formula.setOnTouchImageViewListener {
+             if (binding.formula.isZoomed) {
+                binding.text.visibility = View.GONE
+                binding.loadingBar.visibility = View.GONE
+             } else {
+                 binding.text.visibility = View.VISIBLE
+             }
         }
 
         binding.text.text = arguments?.getString("text") ?: ""
